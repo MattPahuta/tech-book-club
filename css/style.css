@@ -1,0 +1,112 @@
+/*
+Author: Matt Pahuta
+https://www.mattpahuta.com
+Date: January 2025
+*/
+/* Custom Variables */
+:root {
+  
+  /* Fonts */
+
+  /* Font Sizes */
+
+  /* Colors */
+  
+  /* Border radius */
+  --br-soft: 1rem;
+  --br-round: 50%;
+}
+
+/* RESET */
+/* Josh Comeau custom css reset */
+/* https://www.joshwcomeau.com/css/custom-css-reset/ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+/* Utilities */
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
+}
+
+/* BASE STYLES */
+body {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Martian Mono", serif;
+  font-size: var(--fs-400);
+  line-height: 1.5;  
+
+
+}
+
+.wrapper {
+  max-width: 1160px;
+  margin-inline: auto;
+}
+
+h1 {
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+button.button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 220ms all ease-in-out;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  button.button {
+    border: 2px solid currentcolor;
+  }
+}
+
+.button:hover,
+.button:focus-visible {
+  
+}
