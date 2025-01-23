@@ -3,6 +3,7 @@ Author: Matt Pahuta
 https://www.mattpahuta.com
 Date: January 2025
 */
+@layer reset, base;
 
 @layer reset {
   *,
@@ -40,7 +41,6 @@ Date: January 2025
 
   body {
     min-block-size: 100vh;
-    line-height: 1.6;
   }
 
   h1,
@@ -84,32 +84,33 @@ Date: January 2025
     --ff-title: 'Martian Mono', serif;
     --ff-body: 'Inter', serif;
     /* Font Sizes */
-    --text-preset-1: 3.875rem; /* 62px */
-    --text-preset-1_mobile: 2.375rem; /* 38px */
-    --text-preset-2: 3.125rem; /* 50px*/
-    --text-preset-2_mobile: 2.125rem; /* 34px*/
-    --text-preset-3: 2.125rem; /* 34px*/
-    --text-preset-4: 1.5rem; /* 24px*/
-    --text-preset-5: 1.25rem; /* 20px*/
-    --text-preset-6: 1.125rem; /* 18px*/
-    --text-preset-7: 0.875rem; /* 14px*/
+    --fs-text-preset-1: 3.875rem; /* 62px, bold, lineheight 1.2, spacing -2px */
+    --fs-text-preset-1_mobile: 2.375rem; /* 38px, bold, lineheight 1.2 spacing -2px */
+    --fs-text-preset-2: 3.125rem; /* 50px*, semi-bold, lineheight 1.3, spacing -2px */
+    --fs-text-preset-2_mobile: 2.125rem; /* 34px, semi-bold, lineheight 1.3, spacing -2px */
+    --fs-text-preset-3: 2.125rem; /* 34px, semi-bold, lineheight 1.3, spacing -1px */
+
+    --fs-text-preset-4: 1.5rem; /* 24px, semi-bold, lineheight 1.1, spacing -1px */
+    --fs-text-preset-5: 1.25rem; /* 20px, Inter, regular, lineheight 1.4, spacing -0.5px  */
+    --fs-text-preset-6: 1.125rem; /* 18px, semi-bold, lineheight 1.3, spacing -1px  */
+    --fs-text-preset-7: 0.875rem; /* 14px, semi-bold, lineheight 1.2, spacing -1px  */
 
     /* Colors */
-    --neutral-900: hsl(194, 78%, 11%);
-    --neutral-700: hsl(195, 23%, 28%);
-    --neutral-200: hsl(17, 12%, 89%);
-    --neutral-100: hsl(17, 41%, 97%);
-    --neutral-000: hsl(0, 0%, 100%);
-    --light-salmon-500: #fea36f;
-    --light-salmon-100: hsl(22, 100%, 91%);
-    --light-salmon-50: hsl(23, 100%, 97%);
+    --clr-neutral-900: hsl(194, 78%, 11%);
+    --clr-neutral-700: hsl(195, 23%, 28%);
+    --clr-neutral-200: hsl(17, 12%, 89%);
+    --clr-neutral-100: hsl(17, 41%, 97%);
+    --clr-neutral-000: hsl(0, 0%, 100%);
+    --clr-light-salmon-500: hsl(22, 99%, 72%);
+    --clr-light-salmon-100: hsl(22, 100%, 91%);
+    --clr-light-salmon-50: hsl(23, 100%, 97%);
     /* Gradients */
-    --text-gradient: linear-gradient(
+    --gradient-text: linear-gradient(
       10deg,
       #ff9a60 -11.37%,
       #062630 61.84%
     );
-    --gradient: linear-gradient(90deg, #ffe2d1 0%, #fff5ef 100%);
+    --gradient-standard: linear-gradient(90deg, #ffe2d1 0%, #fff5ef 100%);
     /* Spacing */
     --spacing-0: 0px; /* 0px */
     --spacing-025: 0.125rem; /* 2px */
@@ -136,52 +137,96 @@ Date: January 2025
     --radius-16: 16px;
     --radius-20: 20px;
     --radius-24: 24px;
-    --radius-full: 999px; 
+    --radius-full: 999px;
+  }
+
+  html {
+    font-family: var(--ff-body);
+  }
+
+  body {
+    /* display: flex;
+    flex-direction: column; */
+    font-size: var(--fs-text-preset-5);
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: -0.5px;
+    color: var(--clr-neutral-700);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--ff-title);
+    text-wrap: balance;
   }
 }
 
-/* Utilities */
-.visually-hidden:not(:focus):not(:active) {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
+@layer layout {
+  .site-header,
+  .section,
+  .site-footer {
+    padding-inline: var(--spacing-200);
+  }
+
+  .wrapper {
+    --wrapper-max-width: 1170px;
+    /* 
+      different approahes to setting the max-width here
+      Layout & Utility Classes => Wrappers & Containers ~ 4:00
+    */
+    max-width: var(--wrapper-max-width);
+    margin-inline: auto;
+    box-sizing: content-box;
+    /* nesting a modifier */
+    &[data-width='narrow'] {
+      --wrapper-max-width: 720px;
+    }
+
+    &[data-width='wide'] {
+      --wrapper-max-width: 1330px;
+    }
+  }
 }
 
-/* BASE STYLES */
-body {
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Martian Mono', serif;
-  font-size: var(--fs-400);
-  line-height: 1.5;
+@layer utilities {
+  .visually-hidden:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
 }
 
-.wrapper {
-  max-width: 1160px;
-  margin-inline: auto;
-}
-
-h1 {
-  line-height: 1.05;
-  text-wrap: balance;
-}
-
+a.button,
 button.button {
-  border: none;
-  background-color: transparent;
-  padding: 0;
-  cursor: pointer;
-
+  padding: 20px 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  border-radius: var(--radius-8);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+button.button {
+  /* border: none;
+  background-color: transparent; */
 
   transition: 220ms all ease-in-out;
+}
+
+.btn-primary {
+  background-color: var(--clr-light-salmon-50);
+  color: var(--clr-neutral-900);
+  border: 2px solid var(--clr-neutral-900);
+  font-size: var(--fs-text-preset-6);
+  letter-spacing: -1px;    
 }
 
 @media screen and (-ms-high-contrast: active) {
@@ -193,3 +238,4 @@ button.button {
 .button:hover,
 .button:focus-visible {
 }
+
