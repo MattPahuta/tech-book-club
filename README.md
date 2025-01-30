@@ -73,7 +73,7 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+- [Totally Custom List Styles](https://moderncss.dev/totally-custom-list-styles/) - I drew a lot from this Stephanie Eckles post when styling the custom list items for the site. I opted to go with the `::before` pseudo element route rather than the newer `::marker` pseudo selector, mainly for better support across browsers. 
 - [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 

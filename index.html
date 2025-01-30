@@ -59,7 +59,7 @@
 
         <!-- 2 columns,  -->
         <div class="hero equal-columns" data-gap="large">
-          <div>
+          <div class="flow">
             <h1>Join the ultimate tech book club</h1>
             <p>
               Turn your reading time into learning time with fellow
@@ -94,7 +94,7 @@
           <div class="equal-columns" data-gap="medium">
             <div>
               <h2>Read together, grow together</h2>
-              <ul>
+              <ul class="flow features-list">
                 <li>
                   Monthly curated tech reads selected by industry
                   experts
@@ -151,14 +151,15 @@
         </div>
       </section>
 
+      <!-- This section only visible on Desktop -->
       <section class="section">
         <div class="wrapper">
           <h2>Your tech reading journey</h2>
-          <ol>
-            <li>1 Choose your membership tier</li>
-            <li>2 Get your monthly book selection</li>
-            <li>3 Join our discussion forums</li>
-            <li>4 Attend exclusive meetups</li>
+          <ol class="journey-list">
+            <li>Choose your membership tier</li>
+            <li>Get your monthly book selection</li>
+            <li>Join our discussion forums</li>
+            <li>Attend exclusive meetups</li>
           </ol>
         </div>
       </section>
@@ -167,9 +168,10 @@
         <div class="wrapper">
           <h2>Membership options</h2>
           <div class="grid-auto-fill card-wrapper">
+            <!-- card 1 -->
             <div class="card">
               <h3>Starter</h3>
-              <p>$19/month</p>
+              <p class="card__cost"><span>$19</span>/month</p>
               <ul>
                 <li>1 book/month</li>
                 <li>Online forums</li>
@@ -178,9 +180,10 @@
                 Subscribe now
               </button>
             </div>
-            <div class="card">
+            <!-- card 2 (Featured Card) -->
+            <div class="card" data-featured="true">
               <h3>Pro</h3>
-              <p>$29/month</p>
+              <p class="card__cost"><span>$29</span>/month</p>
               <ul>
                 <li>2 books/month</li>
                 <li>Virtual meetups</li>
@@ -189,9 +192,9 @@
                 Subscribe now
               </button>
             </div>
-            <div class="card">
+             <div class="card">
               <h3>Enterprise</h3>
-              <p>Custom</p>
+              <p class="card__cost"><span>Custom</span></p>
               <ul>
                 <li>Team access</li>
                 <li>Private sessions</li>
