@@ -106,7 +106,7 @@ Date: January 2025
     --clr-light-salmon-50: hsl(23, 100%, 97%);
     /* Gradients */
     --gradient-text: linear-gradient(
-      10deg,
+      107deg,
       #ff9a60 -11.37%,
       #062630 61.84%
     );
@@ -115,6 +115,9 @@ Date: January 2025
       #ffe2d1 0%,
       #fff5ef 100%
     );
+
+    --gradient-alt: linear-gradient(90deg, #375058 0%, #062832 100%);
+
     /* Spacing */
     --spacing-0: 0px; /* 0px */
     --spacing-025: 0.125rem; /* 2px */
@@ -175,6 +178,26 @@ Date: January 2025
     text-wrap: balance;
   }
 
+  .logo-link {
+    display: inline-flex;
+  }
+
+  .hero__title {
+    --font-size: var(--fs-text-preset-1_mobile);
+    font-size: var(--font-size);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -2px;
+    color: var(--gradient-text);
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @media (width > 45rem) {
+      --font-size: var(--fs-text-preset-1);
+    }
+  }
+
   .section h2 {
     margin-bottom: var(--spacing-300);
   }
@@ -212,7 +235,6 @@ Date: January 2025
     @media (width > 45rem) {
       padding-inline: var(--spacing-400);
     }
-
   }
 
   /* Select everything except first child */
@@ -225,32 +247,33 @@ Date: January 2025
     gap: var(--equal-columns-gap, var(--spacing-300));
 
     /* Check if I'm using data attributes here... */
-    &[data-gap="medium"] {
+    &[data-gap='medium'] {
       --equal-columns-gap: var(--spacing-500);
     }
-    
-    &[data-gap="large"] {
+
+    &[data-gap='large'] {
       --equal-columns-gap: var(--spacing-800);
     }
-    
+
     @media (width > 64rem) {
       grid-auto-flow: column;
     }
-
   }
 
   .grid-auto-fill {
     --min-column-size: 286px;
     display: grid;
     gap: var(--spacing-300);
-    grid-template-columns: repeat(auto-fill, minmax(min(var(--min-column-size), 100%), 1fr));
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(min(var(--min-column-size), 100%), 1fr)
+    );
   }
 
   .section {
     /* spacing-800, 1000 */
     --padding: (var(--spacing-800));
     padding-block: var(--padding);
-
   }
 
   .wrapper {
@@ -276,34 +299,60 @@ Date: January 2025
 @layer components {
   a.button,
   button.button {
-    padding: 20px 24px;
+    padding: 1.125rem 1.25rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     border-radius: var(--radius-8);
     text-transform: uppercase;
-    line-height: 1;
-  }
-
-  button.button {
-    /* border: none;
-  background-color: transparent; */
+    line-height: 1.1;
+    font-size: var(--fs-text-preset-6);
+    letter-spacing: -1px;
+    font-weight: 600;
+    gap: 1rem;
 
     transition: 220ms all ease-in-out;
   }
 
-  a.btn-primary {
+  a.btn-primary,
+  a.btn-alt {
     text-decoration: none;
   }
 
   .btn-primary {
-    background-color: var(--clr-light-salmon-50);
+    background: var(--clr-light-salmon-50);
     color: var(--clr-neutral-900);
     border: 2px solid var(--clr-neutral-900);
-    font-size: var(--fs-text-preset-6);
-    letter-spacing: -1px;
-    font-weight: 600;
+
+    /* check usage of width here */
+    width: 100%;
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus-visible {
+    background: var(--gradient-standard);
+  }
+
+  .btn-primary:focus-visible {
+    outline: 2px solid var(--clr-neutral-900);
+    outline-offset: 0.25rem;
+  }
+
+  .btn-alt {
+    background: var(--clr-neutral-900);
+    color: var(--clr-neutral-000);
+    border: 2px solid var(--clr-neutral-000);
+  }
+
+  .btn-alt:hover,
+  .btn-alt:focus-visible {
+    background: var(--gradient-alt);
+  }
+
+  .btn-alt:focus-visible {
+    outline: 2px solid var(--clr-neutral-200);
+    outline-offset: 0.25rem;
   }
 
   @media screen and (-ms-high-contrast: active) {
@@ -320,12 +369,20 @@ Date: January 2025
     padding-block-start: var(--spacing-300);
     padding-block-end: var(--spacing-1000);
     background-color: var(--clr-light-salmon-50);
-    background-image: url("../images/pattern-light-bg.svg");
-    
+    background-image: url('../images/pattern-light-bg.svg');
   }
 
   .hero {
     padding-block-start: var(--spacing-600);
+  }
+
+  .testimonial-component {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-150);
+    .testimonial-component__avatars {
+      max-width: 110px;
+    }
   }
 
   .main {
@@ -333,12 +390,12 @@ Date: January 2025
     display: flex;
     flex-direction: column;
     gap: var(--spacing-800);
-    
+
     @media (width > 45rem) {
       padding-block: var(--spacing-1000);
       gap: var(--spacing-1000);
     }
-    
+
     @media (width > 64rem) {
       padding-block: var(--spacing-1250);
       gap: var(--spacing-1250);
@@ -346,6 +403,7 @@ Date: January 2025
   }
 
   .site-footer {
+    color: var(--clr-neutral-000);
     padding-block-start: var(--spacing-600);
     padding-block-end: var(--spacing-300);
     border-top-left-radius: var(--radius-16);
@@ -368,8 +426,6 @@ Date: January 2025
     gap: var(--spacing-300); */
   }
 
-
-
   ul {
     margin: 0;
     padding: 0;
@@ -379,12 +435,11 @@ Date: January 2025
     font-size: var(--fs-text-preset-5);
   }
 
-
   li {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: var(--spacing-150);
-    align-items: center
+    align-items: center;
   }
 
   ul li::before {
@@ -394,7 +449,7 @@ Date: January 2025
     display: inline-block;
   }
 
-    /* Reference cards in FungiFinders */
+  /* Reference cards in FungiFinders */
   .card {
     /* --max-width: 340px;
     max-width: var(--max-width); */
@@ -428,7 +483,6 @@ Date: January 2025
   .features-list {
     --flow-space: 1rem;
   }
-
 }
 
 @layer utilities {
@@ -460,5 +514,4 @@ Date: January 2025
   .padding-block-xl {
     padding-block: var(--section-padding-xl);
   }
-
 }
