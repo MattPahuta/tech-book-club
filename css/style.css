@@ -1,8 +1,12 @@
 /*
 Author: Matt Pahuta
 https://www.mattpahuta.com
-Date: January 2025
+Date: March 2025
 */
+@view-transition {
+  navigation: auto;
+}
+
 @layer reset, base;
 
 @layer reset {
@@ -152,6 +156,12 @@ Date: January 2025
 
   html {
     font-family: var(--ff-body);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   body {
@@ -371,7 +381,6 @@ Date: January 2025
     background-image: url('../images/pattern-light-bg.svg');
   }
 
-
   .hero {
     padding-block-start: var(--spacing-600);
 
@@ -395,7 +404,6 @@ Date: January 2025
     gap: var(--spacing-150);
     font-family: var(--ff-title);
     font-size: var(--fs-text-preset-7);
-
 
     .testimonial-component__avatars {
       max-width: 110px;
@@ -479,7 +487,7 @@ Date: January 2025
     padding: var(--spacing-300);
     border: 1px solid var(--clr-neutral-200);
     border-radius: var(--radius-8);
-  
+
     &[data-featured='true'] {
       background: var(--gradient-standard);
     }
