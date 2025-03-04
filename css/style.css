@@ -431,6 +431,14 @@ Date: March 2025
     }
   }
 
+  /* Testimonial Quote */
+  .testimonial {
+    font-family: var(--ff-title);
+    font-size: var(--fs-text-preset-4);
+    font-weight: 600;
+    letter-spacing: -1px;
+  }
+
   .main {
     padding-block: var(--spacing-800);
     display: flex;
@@ -512,9 +520,6 @@ Date: March 2025
       background-image: url('../images/pattern-glow.svg');
       background-position: 25% 0%;
     }
-  }
-
-
 
     .card__cost {
       display: flex;
@@ -543,6 +548,8 @@ Date: March 2025
 }
 
 @layer utilities {
+
+
   .visually-hidden:not(:focus):not(:active) {
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
