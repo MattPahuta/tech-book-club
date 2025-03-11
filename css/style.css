@@ -58,7 +58,7 @@ Date: March 2025
 
   p,
   li {
-    text-wrap: pretty;
+    text-wrap: wrap;
   }
 
   img,
@@ -127,6 +127,7 @@ Date: March 2025
     --spacing-250: 1.25rem; /* 20px */
     --spacing-300: 1.5rem; /* 24px */
     --spacing-400: 2rem; /* 32px */
+    --spacing-450: 2.125rem; /* 34px */
     --spacing-500: 2.5rem; /* 40px */
     --spacing-600: 3rem; /* 48px */
     --spacing-800: 4rem; /* 64px */
@@ -169,6 +170,7 @@ Date: March 2025
     flex-direction: column; */
     font-size: var(--fs-text-preset-5);
     font-weight: 400;
+    letter-spacing: -0.5px;
     line-height: 1.4;
     color: var(--clr-neutral-700);
   }
@@ -178,7 +180,8 @@ Date: March 2025
   h3,
   h4 {
     font-family: var(--ff-title);
-    /* text-wrap: balance; */
+    font-weight: 600;
+    text-wrap: balance;
   }
 
   ul {
@@ -215,6 +218,15 @@ Date: March 2025
   .section h2 {
     margin-bottom: var(--spacing-300);
     color: var(--clr-neutral-900);
+  }
+
+  @media (width > 45rem) {
+    .membership-section h2 {
+      margin-bottom: var(--spacing-500);
+    }
+    .features-section h2 {
+      margin-bottom: var(--spacing-450);
+    }
   }
 
   /* featured images */
@@ -320,6 +332,7 @@ Date: March 2025
 @layer components {
   a.button,
   button.button {
+    max-width: 380px;
     padding: 20px 24px;
     display: inline-flex;
     align-items: center;
@@ -328,6 +341,7 @@ Date: March 2025
     border-radius: var(--radius-8);
     text-transform: uppercase;
     line-height: 1.1;
+    font-family: var(--ff-title);
     font-size: var(--fs-text-preset-6);
 
     letter-spacing: -1px;
@@ -402,6 +416,7 @@ Date: March 2025
 
     .hero__content > p {
       --flow-space: var(--spacing-300);
+      max-width: 54ch;
     }
 
     .hero__content .button {
@@ -411,12 +426,16 @@ Date: March 2025
     .hero__content .testimonial-component {
       --flow-space: var(--spacing-250);
     }
+
+    .hero__content .stars-container svg {
+      height: 24px;
+      width: 24px;
+    }
   }
 
   /* ToDo: rename this class */
   .hero-inner {
     --flow-space: var(--spacing-400);
-    max-width: 380px;
     display: grid;
     gap: var(--spacing-300);
   }
@@ -425,7 +444,7 @@ Date: March 2025
   /* ToDo: sync this with the stars-container class??? */
   .stars-container {
     display: flex;
-    gap: var(--spacing-075);
+    /* gap: var(--spacing-075); */
   }
   .stars-container svg {
     height: 28px;
@@ -438,7 +457,7 @@ Date: March 2025
     gap: var(--spacing-150);
     font-family: var(--ff-title);
     font-size: var(--fs-text-preset-7);
-
+    letter-spacing: -1px;
     .testimonial-component__avatars {
       max-width: 110px;
     }
@@ -450,6 +469,7 @@ Date: March 2025
     font-family: var(--ff-title);
     font-size: var(--fs-text-preset-4);
     font-weight: 600;
+    color: var(--clr-neutral-900);
     letter-spacing: -1px;
 
     @media (width > 45rem) {
@@ -473,7 +493,7 @@ Date: March 2025
       gap: var(--spacing-1250);
     }
   }
-
+  /* ToDo: change class to 'cta-section' */
   .cta {
     padding-block-start: var(--spacing-600);
     padding-block-end: var(--spacing-800);
@@ -485,6 +505,7 @@ Date: March 2025
       color: var(--clr-neutral-000);
       margin-bottom: var(--spacing-500);
       text-align: center;
+      text-wrap: auto;
     }
 
     .cta-inner {
@@ -511,14 +532,16 @@ Date: March 2025
 
     }
 
-    small {
+    p {
       font-size: var(--fs-text-preset-7);
+      font-weight: 500;
     }
 
     .socials-list {
       display: flex;
       gap: var(--spacing-200);
       justify-content: center;
+      align-items: center;
     }
 
     .social-link {
