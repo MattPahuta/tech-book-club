@@ -230,7 +230,10 @@ Date: March 2025
   }
 
   /* featured images */
+  /* ToDo: move with Header/Hero styles??? */
   .img-club {
+    position: relative;
+    z-index: 100;
     object-fit: cover;
     border-radius: var(--radius-8);
   }
@@ -409,6 +412,11 @@ Date: March 2025
     background-color: var(--clr-light-salmon-50);
     background-image: url('../images/pattern-light-bg.svg');
     background-repeat: no-repeat;
+    overflow: hidden;
+
+    @media (width > 45rem) {
+      background-repeat: repeat;
+    }
   }
 
   .hero {
@@ -430,6 +438,16 @@ Date: March 2025
     .hero__content .stars-container svg {
       height: 24px;
       width: 24px;
+    }
+
+    .hero__image {
+      position: relative;
+    }
+
+    .hero__image .decorative-glow {
+      position: absolute;
+      right: -35%;
+      bottom: -35%;
     }
   }
 
@@ -517,19 +535,17 @@ Date: March 2025
 
   .site-footer {
     color: var(--clr-neutral-000);
-    
-    
+
     .footer-inner {
       padding-block: var(--spacing-300);
       border-top: 1px solid var(--clr-neutral-700);
     }
-    
+
     .footer-content {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: var(--spacing-200);
-
     }
 
     p {
@@ -609,7 +625,7 @@ Date: March 2025
     border-radius: var(--radius-8);
 
     &[data-featured='true'] {
-      position: relative;
+      /* position: relative; */
       background-color: var(--clr-neutral-100);
       overflow: hidden;
       background-image: url('../images/pattern-glow.svg');
