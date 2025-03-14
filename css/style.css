@@ -166,11 +166,9 @@ Date: March 2025
   }
 
   body {
-    /* display: flex;
-    flex-direction: column; */
     font-size: var(--fs-text-preset-5);
     font-weight: 400;
-    letter-spacing: -0.5px;
+    /* letter-spacing: -0.5px; */
     line-height: 1.4;
     color: var(--clr-neutral-700);
   }
@@ -218,6 +216,7 @@ Date: March 2025
   .section h2 {
     margin-bottom: var(--spacing-300);
     color: var(--clr-neutral-900);
+    letter-spacing: -2px;
   }
 
   @media (width > 45rem) {
@@ -264,6 +263,8 @@ Date: March 2025
   .equal-columns {
     display: grid;
     gap: var(--equal-columns-gap, var(--spacing-300));
+    /* ToDo: check this align-items prop default is correct */
+    align-items: var(--column-layout-alignment, start);
 
     /* Check if I'm using data attributes here... */
     &[data-gap='medium'] {
@@ -275,10 +276,17 @@ Date: March 2025
     }
 
     @media (width > 64rem) {
+      --column-layout-alignment: center;
       grid-auto-flow: column;
+      /* grid-auto-columns: 1fr; */
+
+      &[data-gap='medium'] {
+        --equal-columns-gap: var(--spacing-1000);
+      }
     }
   }
 
+  /* For membership tier cards section */
   .grid-auto-fill {
     --min-column-size: 286px;
     display: grid;
@@ -293,6 +301,23 @@ Date: March 2025
     /* spacing-800, 1000 */
     --padding: (var(--spacing-800));
     padding-block: var(--padding);
+  }
+
+  .features-section__content,
+  .about-section__content {
+    max-width: 530px;
+  }
+
+  @media (width > 64rem) {
+    .features-section {
+      grid-template-columns: 1fr auto;
+    }
+    .about-section {
+      grid-template-columns: auto 1fr;
+    }
+    .features-section__content {
+      order: 2;
+    }
   }
 
   .journey-section {
@@ -416,11 +441,16 @@ Date: March 2025
 
     @media (width > 45rem) {
       background-repeat: repeat;
+      padding-block-start: var(--spacing-400);
     }
   }
 
   .hero {
     padding-block-start: var(--spacing-600);
+
+    @media (width > 45rem) {
+      padding-block-start: var(--spacing-1000);
+    }
 
     .hero__content > p {
       --flow-space: var(--spacing-300);
@@ -446,8 +476,16 @@ Date: March 2025
 
     .hero__image .decorative-glow {
       position: absolute;
+      height: 684px;
+      width: 684px;
       right: -35%;
       bottom: -35%;
+    }
+
+    @media (width > 64rem) {
+      .hero__content {
+        max-width: 570px;
+      }
     }
   }
 
@@ -479,6 +517,28 @@ Date: March 2025
     .testimonial-component__avatars {
       max-width: 110px;
     }
+  }
+
+  /* Custom UL check list */
+  .custom-check-list {
+    display: grid;
+    gap: var(--spacing-200);
+    font-size: var(--fs-text-preset-5);
+  }
+
+  .custom-check-list li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--spacing-150);
+    align-items: center;
+    max-width: 35ch;
+  }
+
+  .custom-check-list li::before {
+    content: url(../images/icon-check.svg);
+    width: 24px;
+    height: 24px;
+    display: inline-block;
   }
 
   /* Testimonial Quote */
@@ -592,26 +652,6 @@ Date: March 2025
     display: grid;
     grid-template-columns: repeat(var(--column-count), 1fr);
     gap: var(--spacing-300); */
-  }
-
-  .custom-check-list {
-    display: grid;
-    gap: var(--spacing-200);
-    font-size: var(--fs-text-preset-5);
-  }
-
-  .custom-check-list li {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: var(--spacing-150);
-    align-items: center;
-  }
-
-  .custom-check-list li::before {
-    content: url(../images/icon-check.svg);
-    width: 24px;
-    height: 24px;
-    display: inline-block;
   }
 
   /* Reference cards in FungiFinders */
