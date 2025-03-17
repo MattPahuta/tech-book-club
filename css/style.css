@@ -166,6 +166,9 @@ Date: March 2025
   }
 
   body {
+    min-height: 100vh;
+    display: grid;
+    grid-auto-flow: row;
     font-size: var(--fs-text-preset-5);
     font-weight: 400;
     /* letter-spacing: -0.5px; */
@@ -182,7 +185,8 @@ Date: March 2025
     text-wrap: balance;
   }
 
-  ul {
+  ul,
+  ol {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -244,6 +248,10 @@ Date: March 2025
   }
 
   @media (width > 64rem) {
+    .membership-section h2 {
+      margin-bottom: var(--spacing-800);
+      text-align: center;
+    }
     .img-club {
       border-radius: var(--radius-12);
     }
@@ -290,6 +298,7 @@ Date: March 2025
   .grid-auto-fill {
     --min-column-size: 286px;
     display: grid;
+    align-items: center;
     gap: var(--spacing-300);
     grid-template-columns: repeat(
       auto-fill,
@@ -322,10 +331,26 @@ Date: March 2025
 
   .journey-section {
     display: none;
+    padding-block: var(--spacing-1000);
+
+    h2 {
+      max-width: 20ch;
+      text-align: center;
+    }
 
     @media (width > 64rem) {
       display: block;
     }
+  }
+
+  .journey-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-800);
+
+
   }
 
   .wrapper {
@@ -431,11 +456,19 @@ Date: March 2025
     }
   }
 
+  .site-header,
+  .journey-section {
+    background-image: url('../images/pattern-light-bg.svg');
+    background-color: var(--clr-light-salmon-50);
+  }
+
+  .journey-section {
+    border-radius: var(--radius-12);
+  }
+
   .site-header {
     padding-block-start: var(--spacing-300);
     padding-block-end: var(--spacing-1000);
-    background-color: var(--clr-light-salmon-50);
-    background-image: url('../images/pattern-light-bg.svg');
     background-repeat: no-repeat;
     overflow: hidden;
 
@@ -507,6 +540,7 @@ Date: March 2025
     width: 28px;
   }
 
+  /* ToDo: rename this component to avoid confustion with testimonal blockquote? */
   .testimonial-component {
     display: flex;
     align-items: center;
@@ -517,6 +551,51 @@ Date: March 2025
     .testimonial-component__avatars {
       max-width: 110px;
     }
+  }
+
+  /* Custom OL - Journey list */
+  .journey-list {
+    max-width: 1050px;
+    font-family: var(--ff-title);
+    font-size: var(--fs-text-preset-6);
+    font-weight: 600;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-600);
+    counter-reset: journey-list-item;
+  }
+
+  .journey-list li {
+    /* outline: 1px solid red; */
+    display: grid;
+    gap: var(--spacing-200);
+    align-items: center;
+    max-width: 35ch;
+  }
+
+  .journey-list li:not(:last-child) {
+    background-image: url('../images/pattern-arrow.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+  }
+
+  .journey-list li:before {
+    content: counter(journey-list-item);
+    counter-increment: journey-list-item;
+    font-size: var(--fs-text-preset-5);
+    font-weight: 600;
+
+    border: 2px solid var(--clr-neutral-900);
+    border-radius: var(--radius-4);
+    justify-self: start;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+
+    color: var(--clr-neutral-900);
+
+    margin-inline-end: var(--spacing-200);
   }
 
   /* Custom UL check list */
@@ -542,7 +621,16 @@ Date: March 2025
   }
 
   /* Testimonial Quote */
+  .testimonial-content {
+    display: grid;
+
+    @media (width > 64rem) {
+      text-align: center;
+      justify-items: center;
+    }
+  }
   .testimonial {
+    max-width: 40ch;
     margin-block: var(--spacing-400);
     font-family: var(--ff-title);
     font-size: var(--fs-text-preset-4);
@@ -567,7 +655,7 @@ Date: March 2025
     }
 
     @media (width > 64rem) {
-      padding-block: var(--spacing-1250);
+      padding-block-start: var(--spacing-1250);
       gap: var(--spacing-1250);
     }
   }
@@ -580,8 +668,10 @@ Date: March 2025
     border-top-right-radius: var(--radius-16);
 
     h2 {
-      color: var(--clr-neutral-000);
+      max-width: 20ch;
+      margin-inline: auto;
       margin-bottom: var(--spacing-500);
+      color: var(--clr-neutral-000);
       text-align: center;
       text-wrap: auto;
     }
@@ -670,6 +760,10 @@ Date: March 2025
       overflow: hidden;
       background-image: url('../images/pattern-glow.svg');
       background-position: 25% 0%;
+
+      @media (width > 64rem) {
+        padding-block: var(--spacing-500);
+      }
     }
 
     .card__cost {

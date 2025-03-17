@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
+    <!-- ToDo: update alt descriptions for all images, add other accessibility features -->
     <header class="site-header">
       <div class="wrapper">
         <a href="#" class="logo-link">
@@ -167,7 +168,10 @@
                 alt=""
                 class="img-club" />
             </picture>
-            <img class="decorative-glow" src="./images/pattern-glow.svg" alt="">
+            <img
+              class="decorative-glow"
+              src="./images/pattern-glow.svg"
+              alt="" />
           </div>
         </div>
       </div>
@@ -240,13 +244,31 @@
       <!-- Journey Section - only visible on Desktop -->
       <section class="section journey-section">
         <div class="wrapper">
-          <h2>Your tech reading journey</h2>
-          <ol class="journey-list">
-            <li>Choose your membership tier</li>
-            <li>Get your monthly book selection</li>
-            <li>Join our discussion forums</li>
-            <li>Attend exclusive meetups</li>
-          </ol>
+          <div class="journey-content">
+            <h2>Your tech reading journey</h2>
+            <ol class="journey-list">
+              <li>
+                <span class="visually-hidden">1</span>Choose your
+                membership tier
+              </li>
+              <li>
+                <span class="visually-hidden">2</span>Get your monthly
+                book selection
+              </li>
+              <li>
+                <span class="visually-hidden">3</span>Join our
+                discussion forums
+              </li>
+              <li>
+                <span class="visually-hidden">4</span>Attend exclusive
+                meetups
+              </li>
+            </ol>
+            <img
+              class="decorative-glow"
+              src="./images/pattern-glow.svg"
+              alt="" />
+          </div>
         </div>
       </section>
       <!-- Membership option section -->
@@ -254,6 +276,7 @@
         <div class="wrapper">
           <h2>Membership options</h2>
           <!-- ToDo: Make this a UL??? -->
+          <!-- Check FEM Pricing Cards challenge -->
           <div class="grid-auto-fill card-wrapper">
             <!-- card 1 -->
             <div class="card">
@@ -294,71 +317,73 @@
       <!-- testimonial section -->
       <section class="section testimonial-section">
         <div class="wrapper">
-          <h2 class="visually-hidden">Testimonials</h2>
-          <div class="stars-container">
-            <!-- 5 star icons -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="25"
-              fill="none"
-              viewBox="0 0 24 25">
-              <path
-                fill="#FF9A60"
-                d="M11.207 5.742c.328-.656 1.258-.629 1.559 0L14.57 9.38l3.992.574c.711.11.985.985.465 1.504l-2.87 2.816.683 3.965c.11.711-.656 1.258-1.285.93L12 17.281l-3.582 1.887c-.629.328-1.395-.219-1.285-.93l.683-3.964-2.87-2.817c-.52-.52-.247-1.394.464-1.504l4.02-.574 1.777-3.637Z"
-                opacity=".9" />
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="25"
-              fill="none"
-              viewBox="0 0 24 25">
-              <path
-                fill="#FF9A60"
-                d="M11.207 5.742c.328-.656 1.258-.629 1.559 0L14.57 9.38l3.992.574c.711.11.985.985.465 1.504l-2.87 2.816.683 3.965c.11.711-.656 1.258-1.285.93L12 17.281l-3.582 1.887c-.629.328-1.395-.219-1.285-.93l.683-3.964-2.87-2.817c-.52-.52-.247-1.394.464-1.504l4.02-.574 1.777-3.637Z"
-                opacity=".9" />
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="25"
-              fill="none"
-              viewBox="0 0 24 25">
-              <path
-                fill="#FF9A60"
-                d="M11.207 5.742c.328-.656 1.258-.629 1.559 0L14.57 9.38l3.992.574c.711.11.985.985.465 1.504l-2.87 2.816.683 3.965c.11.711-.656 1.258-1.285.93L12 17.281l-3.582 1.887c-.629.328-1.395-.219-1.285-.93l.683-3.964-2.87-2.817c-.52-.52-.247-1.394.464-1.504l4.02-.574 1.777-3.637Z"
-                opacity=".9" />
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="25"
-              fill="none"
-              viewBox="0 0 24 25">
-              <path
-                fill="#FF9A60"
-                d="M11.207 5.742c.328-.656 1.258-.629 1.559 0L14.57 9.38l3.992.574c.711.11.985.985.465 1.504l-2.87 2.816.683 3.965c.11.711-.656 1.258-1.285.93L12 17.281l-3.582 1.887c-.629.328-1.395-.219-1.285-.93l.683-3.964-2.87-2.817c-.52-.52-.247-1.394.464-1.504l4.02-.574 1.777-3.637Z"
-                opacity=".9" />
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="25"
-              fill="none"
-              viewBox="0 0 24 25">
-              <path
-                fill="#FF9A60"
-                d="M11.207 5.742c.328-.656 1.258-.629 1.559 0L14.57 9.38l3.992.574c.711.11.985.985.465 1.504l-2.87 2.816.683 3.965c.11.711-.656 1.258-1.285.93L12 17.281l-3.582 1.887c-.629.328-1.395-.219-1.285-.93l.683-3.964-2.87-2.817c-.52-.52-.247-1.394.464-1.504l4.02-.574 1.777-3.637Z"
-                opacity=".9" />
-            </svg>
+          <div class="testimonial-content">
+            <h2 class="visually-hidden">Testimonials</h2>
+            <div class="stars-container">
+              <!-- 5 star icons -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="25"
+                fill="none"
+                viewBox="0 0 24 25">
+                <path
+                  fill="#FF9A60"
+                  d="M11.207 5.742c.328-.656 1.258-.629 1.559 0L14.57 9.38l3.992.574c.711.11.985.985.465 1.504l-2.87 2.816.683 3.965c.11.711-.656 1.258-1.285.93L12 17.281l-3.582 1.887c-.629.328-1.395-.219-1.285-.93l.683-3.964-2.87-2.817c-.52-.52-.247-1.394.464-1.504l4.02-.574 1.777-3.637Z"
+                  opacity=".9" />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="25"
+                fill="none"
+                viewBox="0 0 24 25">
+                <path
+                  fill="#FF9A60"
+                  d="M11.207 5.742c.328-.656 1.258-.629 1.559 0L14.57 9.38l3.992.574c.711.11.985.985.465 1.504l-2.87 2.816.683 3.965c.11.711-.656 1.258-1.285.93L12 17.281l-3.582 1.887c-.629.328-1.395-.219-1.285-.93l.683-3.964-2.87-2.817c-.52-.52-.247-1.394.464-1.504l4.02-.574 1.777-3.637Z"
+                  opacity=".9" />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="25"
+                fill="none"
+                viewBox="0 0 24 25">
+                <path
+                  fill="#FF9A60"
+                  d="M11.207 5.742c.328-.656 1.258-.629 1.559 0L14.57 9.38l3.992.574c.711.11.985.985.465 1.504l-2.87 2.816.683 3.965c.11.711-.656 1.258-1.285.93L12 17.281l-3.582 1.887c-.629.328-1.395-.219-1.285-.93l.683-3.964-2.87-2.817c-.52-.52-.247-1.394.464-1.504l4.02-.574 1.777-3.637Z"
+                  opacity=".9" />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="25"
+                fill="none"
+                viewBox="0 0 24 25">
+                <path
+                  fill="#FF9A60"
+                  d="M11.207 5.742c.328-.656 1.258-.629 1.559 0L14.57 9.38l3.992.574c.711.11.985.985.465 1.504l-2.87 2.816.683 3.965c.11.711-.656 1.258-1.285.93L12 17.281l-3.582 1.887c-.629.328-1.395-.219-1.285-.93l.683-3.964-2.87-2.817c-.52-.52-.247-1.394.464-1.504l4.02-.574 1.777-3.637Z"
+                  opacity=".9" />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="25"
+                fill="none"
+                viewBox="0 0 24 25">
+                <path
+                  fill="#FF9A60"
+                  d="M11.207 5.742c.328-.656 1.258-.629 1.559 0L14.57 9.38l3.992.574c.711.11.985.985.465 1.504l-2.87 2.816.683 3.965c.11.711-.656 1.258-1.285.93L12 17.281l-3.582 1.887c-.629.328-1.395-.219-1.285-.93l.683-3.964-2.87-2.817c-.52-.52-.247-1.394.464-1.504l4.02-.574 1.777-3.637Z"
+                  opacity=".9" />
+              </svg>
+            </div>
+            <blockquote class="testimonial">
+              "This book club transformed my technical reading from a
+              solitary activity into an enriching community
+              experience. The discussions are gold!"
+            </blockquote>
+            <p>Sarah Chen, Software Architect</p>
           </div>
-          <blockquote class="testimonial">
-            "This book club transformed my technical reading from a
-            solitary activity into an enriching community experience.
-            The discussions are gold!"
-          </blockquote>
-          <p>Sarah Chen, Software Architect</p>
         </div>
       </section>
       <section class="section cta bg-dark">
