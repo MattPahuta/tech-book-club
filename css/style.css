@@ -502,11 +502,10 @@ Date: March 2025
   }
 
   .site-header {
-    position: relative;
+    overflow: hidden;
     padding-block-start: var(--spacing-300);
     padding-block-end: var(--spacing-1000);
     background-repeat: no-repeat;
-    overflow: hidden;
 
     @media (width > 45rem) {
       background-repeat: repeat;
@@ -514,20 +513,24 @@ Date: March 2025
     }
   }
 
-  /* ToDo: consolidate/combine these styles with journey section, refactor */
-  .site-header::before {
+  /* Handle decorative glow - header */
+  .header-wrapper {
+    position: relative;
+  }
+
+  .header-wrapper::before {
     content: '';
     position: absolute;
     background-image: url('../images/pattern-glow.svg');
     background-repeat: no-repeat;
-    bottom: 0;
-    right: -50%;
+    bottom: -65%;
+    right: -20%;
     width: 100%;
     height: 100%;
 
-    @media (width > 45rem) {
-      bottom: -60%;
-      right: -12%;
+    @media (width > 64rem) {
+      bottom: -25%;
+      right: -55%;
     }
   }
 
