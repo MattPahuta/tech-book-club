@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <!-- ToDo: update alt descriptions for all images, add other accessibility features -->
     <header class="site-header">
       <div class="wrapper header-wrapper">
         <a href="#" class="logo-link">
@@ -57,7 +56,6 @@
             </defs>
           </svg>
         </a>
-        <!-- 2 columns,  -->
         <div class="hero equal-columns" data-gap="large">
           <div class="flow hero__content">
             <h1 class="hero__title">
@@ -164,7 +162,7 @@
                 media="(min-width: 45rem)" />
               <img
                 src="./images/image-hero-mobile.webp"
-                alt=""
+                alt="A group of young adults sitting together in a comfortable setting, reading books and discussing ideas"
                 class="img-club" />
             </picture>
           </div>
@@ -172,7 +170,6 @@
       </div>
     </header>
     <main class="main">
-      <!-- 2 column section -->
       <section class="section features-section">
         <div class="wrapper">
           <div class="equal-columns" data-gap="medium">
@@ -200,13 +197,12 @@
                 media="(min-width: 45rem)" />
               <img
                 src="./images/image-read-together-mobile.webp"
-                alt=""
+                alt="A group of people sitting together in a cozy setting, reading books and discussing ideas"
                 class="img-club" />
             </picture>
           </div>
         </div>
       </section>
-      <!-- 2 column section -->
       <section class="section about-section">
         <div class="wrapper">
           <div class="equal-columns" data-gap="medium">
@@ -232,7 +228,7 @@
                 media="(min-width: 45rem)" />
               <img
                 src="./images/image-not-average-mobile.webp"
-                alt="A diverse group of people gathered to enjoy reading and shared interests"
+                alt="A diverse group of people sitting on and around a sofa, reading books and discussing ideas"
                 class="img-club" />
             </picture>
           </div>
@@ -266,13 +262,12 @@
       <section
         class="section membership-section"
         id="membership-options">
-        <div class="wrapper">
+        <div class="wrapper membership-wrapper" data-width="medium">
           <h2>Membership options</h2>
-          <!-- ToDo: Make this a UL??? -->
-          <!-- Check FEM Pricing Cards challenge -->
-          <div class="grid-auto-fill">
+          <!-- Note: removing 'grid-auto-fill' class -->
+          <ul class="options-list">
             <!-- card 1 -->
-            <div class="card">
+            <li class="card">
               <h3>Starter</h3>
               <p class="card__cost"><span>$19</span>/month</p>
               <ul class="custom-check-list">
@@ -282,9 +277,9 @@
               <button class="button btn-primary">
                 Subscribe now
               </button>
-            </div>
+            </li>
             <!-- card 2 (Featured Card) -->
-            <div class="card" data-featured="true">
+            <li class="card" data-featured="true">
               <h3>Pro</h3>
               <p class="card__cost"><span>$29</span>/month</p>
               <ul class="custom-check-list">
@@ -294,8 +289,8 @@
               <button class="button btn-primary">
                 Subscribe now
               </button>
-            </div>
-            <div class="card">
+            </li>
+            <li class="card">
               <h3>Enterprise</h3>
               <p class="card__cost"><span>Custom</span></p>
               <ul class="custom-check-list">
@@ -303,13 +298,13 @@
                 <li>Private sessions</li>
               </ul>
               <button class="button btn-primary">Talk to us</button>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
       </section>
       <!-- testimonial section -->
       <section class="section">
-        <div class="wrapper">
+        <div class="wrapper" data-width="medium">
           <div class="testimonial-content">
             <h2 class="visually-hidden">Testimonials</h2>
             <div class="stars-container">

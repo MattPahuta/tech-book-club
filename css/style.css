@@ -407,8 +407,13 @@ Date: March 2025
     margin-inline: auto;
     box-sizing: content-box;
     /* nesting a modifier */
+    /* ToDo: apply data-width where necessary - currently only using 'medium' */
     &[data-width='narrow'] {
       --wrapper-max-width: 720px;
+    }
+
+    &[data-width='medium'] {
+      --wrapper-max-width: 970px;
     }
 
     &[data-width='wide'] {
@@ -805,7 +810,29 @@ Date: March 2025
     }
   }
 
+    /* For membership tier cards section */
+  /* .grid-auto-fill {
+    --min-column-size: 286px;
+    display: grid;
+    align-items: center;
+    gap: var(--spacing-300);
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(min(var(--min-column-size), 100%), 1fr)
+    );
+  } */
   /* Membership cards */
+  .options-list {
+    display: grid;
+    gap: var(--spacing-300);
+    grid-template-columns: repeat(auto-fit, minmax(min(286px, 100%), 1fr));
+    align-items: center;
+
+    @media (width > 64rem) {
+      grid-template-columns: 1fr 350px 1fr;
+    }
+  }
+
   .card {
     display: grid;
     gap: var(--spacing-300);
