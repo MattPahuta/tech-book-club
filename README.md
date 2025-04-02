@@ -49,6 +49,11 @@ Add a screenshot of your solution. The easiest way to do this is to use Firefox 
 
 ### What I learned
 
+I was drawn to this design largely due to its clean asthetic and the variety of layout and component element challeges it presented. 
+
+I made a point of focussing on accessibility within my code, ensuring images and icons were all properly labeled and outfitted with alt text where necessary. A 'skip to main' link feature was added. And though this site layout doesn't necessary require it with the lack of a navigation menu, making base level A11Y enhancements a requirement of every project I work on feels like the right habit to adopt.
+
+
 Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
 
 To see how you can add code snippets, see below:
