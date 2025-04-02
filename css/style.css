@@ -304,6 +304,24 @@ Date: March 2025
     margin-block-start: var(--flow-space, 1em);
   }
 
+  .wrapper {
+    --wrapper-max-width: 1170px;
+    --padding-inline: var(--spacing-400); /* 2rem */
+    margin-inline: auto;
+    width: min(
+      100% - var(--padding-inline),
+      var(--wrapper-max-width)
+    );
+
+    @media (width > 45rem) {
+      --padding-inline: var(--spacing-800);
+    }
+
+    &[data-width='medium'] {
+      --wrapper-max-width: 970px;
+    }
+  }
+
   .equal-columns {
     display: grid;
     gap: var(--equal-columns-gap, var(--spacing-300));
@@ -328,18 +346,6 @@ Date: March 2025
     }
   }
 
-  /* For membership tier cards section */
-  .grid-auto-fill {
-    --min-column-size: 286px;
-    display: grid;
-    align-items: center;
-    gap: var(--spacing-300);
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(min(var(--min-column-size), 100%), 1fr)
-    );
-  }
-
   .main {
     padding-block: var(--spacing-800);
     display: flex;
@@ -362,7 +368,7 @@ Date: March 2025
     padding-block: var(--padding);
   }
 
-  /* Journey section is only visible for desktop size screens */
+  /* Note: Journey section is only visible for desktop size screens */
   .journey-section {
     display: none;
     padding-block: var(--spacing-1000);
@@ -398,38 +404,6 @@ Date: March 2025
     padding-inline: var(--spacing-700);
     position: relative;
   }
-
-  /* ToDo: move wrapper higher */
-  /* begin wrapper class styles */
-  .wrapper {
-    --wrapper-max-width: 1170px;
-    --padding-inline: var(--spacing-400); /* 2rem */
-
-    width: min(
-      100% - var(--padding-inline),
-      var(--wrapper-max-width)
-    );
-
-    @media (width > 45rem) {
-      --padding-inline: var(--spacing-800);
-    }
-    margin-inline: auto;
-    box-sizing: content-box;
-    /* nesting a modifier */
-    /* ToDo: apply data-width where necessary - currently only using 'medium' */
-    &[data-width='narrow'] {
-      --wrapper-max-width: 720px;
-    }
-
-    &[data-width='medium'] {
-      --wrapper-max-width: 970px;
-    }
-
-    &[data-width='wide'] {
-      --wrapper-max-width: 1330px;
-    }
-  }
-  /* end wrapper class styles */
 }
 
 @layer components {
@@ -505,6 +479,7 @@ Date: March 2025
     }
   }
 
+  /* ToDo: move header, journey section styles to layout layer? */
   .site-header,
   .journey-section {
     background-image: url('../images/pattern-light-bg.svg');
@@ -564,14 +539,24 @@ Date: March 2025
       max-width: 54ch;
     }
 
-    .hero__content .button {
+    .hero__content--cta {
       --flow-space: var(--spacing-400);
+      display: grid;
+      gap: var(--spacing-300);
+
+      .button {
+        --flow-space: var(--spacing-400);
+      }
+      .testimonial-component {
+        --flow-space: var(--spacing-250);
+      }
     }
 
-    .hero__content .testimonial-component {
-      --flow-space: var(--spacing-250);
-    }
-
+    /* ToDo: Fix this in testimonial component
+      - stars in hero component are 24x24
+      - stars in footer and testimonial quote are 28x28
+      - stars-container svg and .stars-container__small svg?
+    */
     .hero__content .stars-container svg {
       height: 24px;
       width: 24px;
@@ -588,24 +573,16 @@ Date: March 2025
     }
   }
 
-  /* ToDo: rename this class */
-  .hero-inner {
-    --flow-space: var(--spacing-400);
-    display: grid;
-    gap: var(--spacing-300);
-  }
-
-  /* Testimonal Component */
-  /* ToDo: sync this with the stars-container class??? */
+  /* Total testimonal component */
   .stars-container {
     display: flex;
   }
+  /* data attribute - data-stars=small = 24x24 */
   .stars-container svg {
     height: 28px;
     width: 28px;
   }
 
-  /* ToDo: rename this component to avoid confustion with testimonal blockquote? */
   .testimonial-component {
     display: flex;
     align-items: center;
@@ -704,7 +681,7 @@ Date: March 2025
   }
 
   /* Testimonial Quote */
-  .testimonial-content {
+  .testimonial-quote-wrapper {
     display: grid;
 
     @media (width > 64rem) {
@@ -712,7 +689,8 @@ Date: March 2025
       justify-items: center;
     }
   }
-  .testimonial {
+
+  .testimonial-quote {
     max-width: 40ch;
     margin-block: var(--spacing-400);
     font-family: var(--ff-title);
@@ -726,12 +704,24 @@ Date: March 2025
     }
   }
 
-  /* ToDo: Simplify structure - remove nesting */
+  /* Footer and CTA */
   .site-footer {
     color: var(--clr-neutral-000);
     border-top-left-radius: var(--radius-16);
     border-top-right-radius: var(--radius-16);
     background-image: url('../images/pattern-dark-bg.svg');
+
+    .cta-wrapper {
+      padding-block-start: var(--spacing-600);
+      padding-block-end: var(--spacing-800);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .button {
+        margin-block-end: var(--spacing-300);
+      }
+    }
 
     .footer-bottom {
       max-width: 1170px;
@@ -745,11 +735,11 @@ Date: March 2025
       flex-direction: column;
       align-items: center;
       gap: var(--spacing-200);
-    }
 
-    p {
-      font-size: var(--fs-text-preset-8);
-      font-weight: 500;
+      p {
+        font-size: var(--fs-text-preset-8);
+        font-weight: 500;
+      }
     }
 
     .socials-list {
@@ -767,19 +757,6 @@ Date: March 2025
       opacity: 0.6;
     }
 
-    /* ToDo: move lower than footer */
-    .cta {
-      padding-block-start: var(--spacing-600);
-      padding-block-end: var(--spacing-800);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      .button {
-        margin-block-end: var(--spacing-300);
-      }
-    }
-
     @media (width > 45rem) {
       .footer-bottom {
         margin-inline: 0;
@@ -792,7 +769,7 @@ Date: March 2025
     }
 
     @media (width > 64rem) {
-      .cta {
+      .cta-wrapper {
         padding-block-start: var(--spacing-1000);
       }
       .footer-bottom {
@@ -807,25 +784,13 @@ Date: March 2025
     }
   }
 
-  /* For membership tier cards section */
-  /* .grid-auto-fill {
-    --min-column-size: 286px;
-    display: grid;
-    align-items: center;
-    gap: var(--spacing-300);
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(min(var(--min-column-size), 100%), 1fr)
-    );
-  } */
   /* Membership cards */
-  /* Adjust class naming of list and cards */
-  .options-list {
+  .membership-options-list {
     display: grid;
     gap: var(--spacing-300);
     grid-template-columns: repeat(
       auto-fit,
-      minmax(min(250px, 100%), 1fr)
+      minmax(min(286px, 100%), 1fr)
     );
     align-items: center;
 
