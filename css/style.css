@@ -96,7 +96,6 @@ Date: March 2025
     --clr-light-salmon-500: hsl(22, 99%, 72%);
     --clr-light-salmon-100: hsl(22, 100%, 91%);
     --clr-light-salmon-50: hsl(23, 100%, 97%);
-    /* ToDo: check use of gradients */
     /* Gradients */
     --gradient-text: linear-gradient(
       107deg,
@@ -140,11 +139,8 @@ Date: March 2025
     --radius-full: 999px;
   }
   /* Semantic Variables */
-  /* ToDo: check use of semantic variables */
   :root {
     --bg-dark: var(--clr-neutral-900);
-
-    /* padding */
     --section-padding-lrg: var(--spacing-800);
     --section-padding-xl: var(var(--spacing-1000));
   }
@@ -193,11 +189,9 @@ Date: March 2025
     display: inline-flex;
   }
 
-  /* Heading Styles */
   .hero__title {
     max-width: 16ch;
-    --font-size: var(--fs-text-preset-1);
-    font-size: var(--font-size);
+    font-size: var(--fs-text-preset-1);
     line-height: 1.2;
     font-weight: 700;
     letter-spacing: -2px;
@@ -206,10 +200,6 @@ Date: March 2025
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
-    @media (width > 40rem) {
-      --font-size: var(--fs-text-preset-1);
-    }
   }
 
   h2 {
@@ -282,7 +272,6 @@ Date: March 2025
   }
 
   @media (width > 64rem) {
-    /* ToDo: rename img-club class to something better */
     .img-club {
       border-radius: var(--radius-12);
     }
@@ -308,7 +297,7 @@ Date: March 2025
 
   .wrapper {
     --wrapper-max-width: 1170px;
-    --padding-inline: var(--spacing-400); /* 2rem */
+    --padding-inline: var(--spacing-400);
     margin-inline: auto;
     width: min(
       100% - var(--padding-inline),
@@ -327,7 +316,6 @@ Date: March 2025
   .equal-columns {
     display: grid;
     gap: var(--equal-columns-gap, var(--spacing-300));
-    /* ToDo: check this align-items prop default is correct */
     align-items: var(--column-layout-alignment, start);
 
     &[data-gap='medium'] {
@@ -411,8 +399,7 @@ Date: March 2025
 @layer components {
   a.button,
   button.button {
-    /* max-width: 380px; */
-    padding: 20px 24px;
+    padding: 1.125rem 1.65rem;
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
@@ -482,15 +469,10 @@ Date: March 2025
     }
   }
 
-  /* ToDo: move header, journey section styles to layout layer? */
   .site-header,
   .journey-section {
     background-image: url('../images/pattern-light-bg.svg');
     background-color: var(--clr-light-salmon-50);
-  }
-
-  .journey-section {
-    border-radius: var(--radius-12);
   }
 
   .site-header {
@@ -503,6 +485,10 @@ Date: March 2025
       background-repeat: repeat;
       padding-block-start: var(--spacing-400);
     }
+  }
+
+  .journey-section {
+    border-radius: var(--radius-12);
   }
 
   /* Handle decorative glow - header */
@@ -565,7 +551,7 @@ Date: March 2025
     }
   }
 
-  /* Total testimonal component */
+  /* multi-stars and testimonal total component */
   .stars-container {
     display: flex;
     &[data-stars='small'] svg {
@@ -699,6 +685,61 @@ Date: March 2025
     }
   }
 
+  /* Membership cards */
+  .membership-options-list {
+    display: grid;
+    gap: var(--spacing-300);
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(250px, 100%), 1fr)
+    );
+    align-items: center;
+
+    @media (width > 64rem) {
+      grid-template-columns: 1fr 350px 1fr;
+    }
+  }
+
+  .card {
+    display: grid;
+    gap: var(--spacing-300);
+    padding: var(--spacing-300);
+    border: 1px solid var(--clr-neutral-200);
+    border-radius: var(--radius-8);
+
+    &[data-featured='true'] {
+      background-color: var(--clr-neutral-100);
+      overflow: hidden;
+      background-image: url('../images/pattern-glow.svg');
+      background-position: 25% 0%;
+
+      @media (width > 64rem) {
+        padding-block: var(--spacing-500);
+      }
+    }
+
+    .card__cost {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-100);
+    }
+
+    .card__cost span {
+      font-size: var(--fs-text-preset-3);
+      font-weight: 700;
+    }
+
+    ul {
+      padding-top: var(--spacing-300);
+      border-top: 1px solid var(--clr-neutral-200);
+    }
+
+    button {
+      margin-top: var(--spacing-100);
+      justify-content: center;
+    }
+  }
+
   /* Footer and CTA */
   .site-footer {
     color: var(--clr-neutral-000);
@@ -776,61 +817,6 @@ Date: March 2025
       .footer-bottom__content {
         --padding-inline: 0;
       }
-    }
-  }
-
-  /* Membership cards */
-  .membership-options-list {
-    display: grid;
-    gap: var(--spacing-300);
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(250px, 100%), 1fr)
-    );
-    align-items: center;
-
-    @media (width > 64rem) {
-      grid-template-columns: 1fr 350px 1fr;
-    }
-  }
-
-  .card {
-    display: grid;
-    gap: var(--spacing-300);
-    padding: var(--spacing-300);
-    border: 1px solid var(--clr-neutral-200);
-    border-radius: var(--radius-8);
-
-    &[data-featured='true'] {
-      background-color: var(--clr-neutral-100);
-      overflow: hidden;
-      background-image: url('../images/pattern-glow.svg');
-      background-position: 25% 0%;
-
-      @media (width > 64rem) {
-        padding-block: var(--spacing-500);
-      }
-    }
-
-    .card__cost {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-100);
-    }
-
-    .card__cost span {
-      font-size: var(--fs-text-preset-3);
-      font-weight: 700;
-    }
-
-    ul {
-      padding-top: var(--spacing-300);
-      border-top: 1px solid var(--clr-neutral-200);
-    }
-
-    button {
-      margin-top: var(--spacing-100);
-      justify-content: center;
     }
   }
 }
