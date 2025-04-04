@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- [Frontend Mentor Solution Page](https://your-solution-url.com)
+- [Frontend Mentor Solution Page](https://www.frontendmentor.io/solutions/responsive-landing-page-using-css-grid-and-flexbox--NoSDnPJCd)
 - [Live site URL](https://darling-blini-2a2475.netlify.app/)
 
 ## My process
