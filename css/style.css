@@ -209,9 +209,9 @@ Date: March 2025
   }
 
   .section h2 {
-    --margin-bottom: var(--spacing-300);
+    --margin-block-end: var(--spacing-300);
     max-width: 17ch;
-    margin-bottom: var(--margin-bottom);
+    margin-block-end: var(--margin-block-end);
     color: var(--clr-neutral-900);
   }
 
@@ -219,25 +219,25 @@ Date: March 2025
     max-width: 20ch;
     text-align: center;
     text-wrap: auto;
-    margin-bottom: var(--spacing-500);
+    margin-block-end: var(--spacing-500);
   }
 
   @media (width > 40rem) {
     .features-section h2 {
-      --margin-bottom: var(--spacing-450);
+      --margin-block-end: var(--spacing-450);
     }
     .membership-section h2 {
-      --margin-bottom: var(--spacing-500);
+      --margin-block-end: var(--spacing-500);
     }
   }
 
   @media (width > 64rem) {
     .membership-section h2 {
-      --margin-bottom: var(--spacing-800);
+      --margin-block-end: var(--spacing-800);
     }
     .journey-section h2,
     .membership-section h2 {
-      --margin-bottom: var(--spacing-800);
+      --margin-block-end: var(--spacing-800);
       margin-inline: auto;
       text-align: center;
       text-wrap: balance;
@@ -399,7 +399,7 @@ Date: March 2025
 @layer components {
   a.button,
   button.button {
-    padding: 1.125rem 1.65rem;
+    padding: 1.125rem 1.5rem;
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
@@ -730,12 +730,12 @@ Date: March 2025
     }
 
     ul {
-      padding-top: var(--spacing-300);
+      padding-block-start: var(--spacing-300);
       border-top: 1px solid var(--clr-neutral-200);
     }
 
     button {
-      margin-top: var(--spacing-100);
+      margin-block-start: var(--spacing-100);
       justify-content: center;
     }
   }

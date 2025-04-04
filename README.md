@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Frontend Mentor Solution Page](https://your-solution-url.com)
+- [Live site URL](https://darling-blini-2a2475.netlify.app/)
 
 ## My process
 
@@ -49,7 +49,7 @@ Users should be able to:
 
 ### What I learned
 
-I was drawn to this project mainly due to its clean design and the variety of layout techniques it was bound to require. While lately, I spend most of my development time working with React, I really enjoy coming back to design projects that are focused on implementing foundational HTML and CSS. 
+I was drawn to this project mainly due to its clean design and the variety of layout techniques it was bound to require. While lately, I spend most of my development time working with React, I really enjoy coming back to design projects that are focused solely on implementing foundational HTML and CSS. 
 
 With this project, I set out to make accessibility a priority, implementing proper semantic HTML elements, setting ARIA roles and attributes where appropriate, and taking care to handle featured images and icons properly. Adhering to A11Y standards and practices is a personal priority for me moving forward and I tried to build a foundation with that approach here.
 
